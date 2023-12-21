@@ -1,0 +1,77 @@
+base_model: ehartford/dolphin-2.1-mistral-7b
+model_type: MistralForCausalLM
+tokenizer_type: LlamaTokenizer
+is_mistral_derived_model: true
+
+load_in_8bit: false
+load_in_4bit: false
+strict: false
+
+datasets:
+  # - path: vicgalle/alpaca-gpt4
+  #   type: alpaca # format from earlier
+  - path: male-2/training_v3
+    type: sharegpt
+    conversation: chatml
+    # conversation: nalyai
+val_set_size: 0.00
+output_dir: 
+adapter: lora
+lora_model_dir:
+
+sequence_len: 512
+sample_packing: true
+pad_to_sequence_len: true
+
+lora_r: 32
+lora_alpha: 16
+lora_dropout: 0.05
+lora_target_linear: true
+lora_fan_in_fan_out:
+lora_target_modules:
+  - q_proj
+  - v_proj
+  - k_proj
+  - o_proj
+
+gradient_accumulation_steps: 4
+micro_batch_size: 2
+num_epochs: 4
+optimizer: adamw_bnb_8bit
+lr_scheduler: cosine
+learning_rate: 0.0002
+
+train_on_inputs: false
+group_by_length: false
+bf16: true
+fp16: false
+tf32: false
+
+early_stopping_patience:
+resume_from_checkpoint:
+local_rank:
+logging_steps: 1
+xformers_attention:
+flash_attention: true
+
+loss_watchdog_threshold: 5.0
+loss_watchdog_patience: 3
+
+warmup_steps: 0
+evals_per_epoch: 0
+eval_table_size:
+eval_table_max_new_tokens: 128
+saves_per_epoch: 1
+debug:
+deepspeed: zero.json
+weight_decay: 0.0
+fsdp:
+fsdp_config:
+
+special_tokens:
+  bos_token: "<|im_start|>"
+  eos_token: "<|im_end|>"
+  unk_token: "<unk>"
+
+wandb_project: 
+wandb_name: 
