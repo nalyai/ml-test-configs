@@ -1,7 +1,7 @@
 # Model
 model_name: "ehartford/dolphin-2.1-mistral-7b"
 is_custom: true
-is_lora: true
+is_lora: false
 device_map: "'auto'"
 
 # Dataset & Inference preset
