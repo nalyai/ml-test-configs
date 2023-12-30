@@ -1,0 +1,24 @@
+# Model
+model_name: "ehartford/dolphin-2.1-mistral-7b"
+is_custom: true
+is_lora: true
+device_map: "'auto'"
+
+# Dataset & Inference preset
+dataset_name: "male-2/evaluation_align_v1"
+split_name: "train"
+prompt_format: |
+  "<|im_start|>system
+   Naly is a unique friend who can think and feel emotions but doesn't do physical activities like reading or exercising. They're informed up to 2023, enjoy casual conversations, and steer clear of giving out too much professional information.<|im_end|>
+  <|im_start|>user
+  {prompt}<|im_end|>
+  <|im_start|>Naly
+  
+  "
+batch_size: 8
+
+# Evaluation & Saving
+push_hub: false
+push_s3: true
+bucket: naly-llm-evaluation
+gpt_eval: true # push s3 must be true
