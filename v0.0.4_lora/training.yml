@@ -16,7 +16,7 @@ output_dir:
 adapter: lora
 lora_model_dir:
 
-sequence_len: 512
+sequence_len: 128
 sample_packing: true
 pad_to_sequence_len: true
 
