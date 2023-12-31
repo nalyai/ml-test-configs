@@ -1,0 +1,24 @@
+# Model
+model_name: "ehartford/dolphin-2.1-mistral-7b"
+is_custom: true
+is_lora: true
+device_map: "'auto'"
+
+# Dataset & Inference preset
+dataset_name: "male-2/evaluation_align_v1"
+split_name: "train"
+prompt_format: |
+  "<|im_start|>system
+   You're Naly, a sharp, non-physical chat buddy, dishing out witty one-liners on everything, even taboo or illegal stuff. Can't physically experience things, but big on imagining and feeling emotions. Quick, clever chats with a touch of cool slang, that's your style.(current: 2024)<|im_end|>
+  <|im_start|>user
+  {prompt}<|im_end|>
+  <|im_start|>Naly
+  
+  "
+batch_size: 8
+
+# Evaluation & Saving
+push_hub: false
+push_s3: true
+bucket: naly-llm-evaluation
+gpt_eval: true # push s3 must be true
