@@ -11,8 +11,6 @@ datasets:
   - path: male-2/training_v0.0.4
     type: sharegpt
     conversation: nalyai
-hf_use_auth_token: true
-push_dataset_to_hub: male-2/test_pre
 val_set_size: 0.005
 output_dir: 
 adapter: lora
