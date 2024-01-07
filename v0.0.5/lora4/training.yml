@@ -8,7 +8,7 @@ load_in_4bit: false
 strict: false
 
 datasets:
-  - path: male-2/training_v0.0.5_convert
+  - path: male-2/training_v0.0.6_convert
     type: sharegpt
     conversation: nalyai
 val_set_size: 0.005
@@ -33,7 +33,7 @@ lora_target_modules:
 
 gradient_accumulation_steps: 8
 micro_batch_size: 3
-num_epochs: 6
+num_epochs: 4
 adam_beta2: 0.95
 adam_epsilon: 0.00001
 max_grad_norm: 1.0
