@@ -1,4 +1,4 @@
-base_model: ehartford/dolphin-2.1-mistral-7b
+base_model: cognitivecomputations/dolphin-2.2.1-mistral-7b
 model_type: MistralForCausalLM
 tokenizer_type: LlamaTokenizer
 is_mistral_derived_model: true

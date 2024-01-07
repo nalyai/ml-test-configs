@@ -1,5 +1,5 @@
 # Model
-model_name: "cognitivecomputations/dolphin-2.6-mistral-7b"
+model_name: "cognitivecomputations/dolphin-2.2.1-mistral-7b"
 is_custom: true
 is_lora: true
 device_map: "'auto'"
